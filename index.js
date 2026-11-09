@@ -6,10 +6,10 @@
  *          → 调 MiMo TTS 逐段合成，边播边合成、可打断。
  */
 
-import { extension_settings, getContext, saveSettingsDebounced } from '../../../extensions.js';
-import { eventSource, event_types } from '../../../../script.js';
+import { extension_settings, getContext } from '../../../extensions.js';
+import { eventSource, event_types, saveSettingsDebounced } from '../../../../script.js';
 
-import { MODULE_ID, DEFAULTS, normalizeSettings, HOST_URLS } from './scripts/settings.js';
+import { MODULE_ID, normalizeSettings, HOST_URLS } from './scripts/settings.js';
 import { segmentMessage } from './scripts/segmenter.js';
 import { resolveSegment, CN_VOICES } from './scripts/voices.js';
 import { synthesize } from './scripts/mimo.js';
