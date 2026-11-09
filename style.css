@@ -1,3 +1,16 @@
+/* 标题里的版本号 */
+.mmv-panel .mmv-ver {
+    font-size: 0.75em;
+    opacity: 0.55;
+    font-weight: normal;
+    margin-left: 6px;
+}
+
+/* 抽屉展开后内部留白，手机上更好点 */
+.mmv-panel .inline-drawer-content {
+    padding-top: 4px;
+}
+
 .mmv-panel .mmv-row {
     display: flex;
     align-items: center;

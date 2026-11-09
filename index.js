@@ -15,7 +15,7 @@ import { resolveSegment, CN_VOICES } from './scripts/voices.js';
 import { synthesize } from './scripts/mimo.js';
 import { SpeechPlayer } from './scripts/player.js';
 
-const VERSION = '0.1.2';
+const VERSION = '0.1.3';
 
 const settings = () => {
     const raw = extension_settings[MODULE_ID];
@@ -132,12 +132,13 @@ const voiceOptions = (selected) =>
 function buildUI() {
     const s = settings();
     const html = `
-<div id="mmv-panel" class="mmv-panel">
-  <div class="mmv-title inline-drawer-toggle inline-drawer-header">
-    <b>MiMo 多角色朗读</b>
+<div id="mmv-panel" class="mmv-panel inline-drawer">
+  <div class="inline-drawer-toggle inline-drawer-header">
+    <b>MiMo 多角色朗读</b> <span class="mmv-ver">v${VERSION}</span>
     <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
   </div>
   <div class="inline-drawer-content">
+    <div class="mmv-hint">① 填 API Key ② 点「试听旁白」③ 打开自动朗读，或随时点「朗读最后一条」</div>
     <label class="checkbox_label"><input type="checkbox" id="mmv-auto" ${s.autoPlay ? 'checked' : ''}> 新消息自动朗读</label>
 
     <div class="mmv-row">
@@ -216,8 +217,29 @@ function buildUI() {
   </div>
 </div>`;
 
-    const target = $('#extensions_settings2').length ? $('#extensions_settings2') : $('#extensions_settings');
-    target.append(html);
+    const $target = $('#extensions_settings2').length
+        ? $('#extensions_settings2')
+        : $('#extensions_settings').length
+          ? $('#extensions_settings')
+          : $('#rm_extensions_block');
+    if ($target.length) {
+        $target.append(html);
+    } else {
+        // 兜底：挂到页面右下角，至少能用
+        document.body.insertAdjacentHTML(
+            'beforeend',
+            `<div style="position:fixed;right:12px;bottom:64px;z-index:5000;max-width:360px">${html}</div>`,
+        );
+    }
+
+    // ST 的 inline-drawer 默认收起；这里默认展开，省得用户找不到
+    const $panel = $('#mmv-panel');
+    $panel.find('> .inline-drawer-content').show();
+    $panel
+        .find('> .inline-drawer-header .inline-drawer-icon')
+        .removeClass('down fa-circle-chevron-down')
+        .addClass('up fa-circle-chevron-up');
+
     statusEl = document.getElementById('mmv-status');
 
     // 浮动状态条
