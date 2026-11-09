@@ -15,6 +15,8 @@ import { resolveSegment, CN_VOICES } from './scripts/voices.js';
 import { synthesize } from './scripts/mimo.js';
 import { SpeechPlayer } from './scripts/player.js';
 
+const VERSION = '0.1.2';
+
 const settings = () => {
     const raw = extension_settings[MODULE_ID];
     const s = normalizeSettings(raw);
@@ -331,7 +333,7 @@ jQuery(async () => {
         settings(); // 初始化默认值
         buildUI();
         bindEvents();
-        console.log('[MiMo 多角色朗读] 已加载');
+        console.log(`[MiMo 多角色朗读] 已加载 v${VERSION}`);
     } catch (e) {
         console.error('[MiMo 多角色朗读] 初始化失败', e);
     }
