@@ -1,0 +1,94 @@
+.mmv-panel .mmv-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+}
+
+.mmv-panel .mmv-row > span:first-child {
+    flex: 0 0 108px;
+    font-size: 0.9em;
+    opacity: 0.85;
+}
+
+.mmv-panel .mmv-row input,
+.mmv-panel .mmv-row select {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.mmv-panel hr {
+    margin: 8px 0;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.mmv-panel .mmv-hint {
+    font-size: 0.8em;
+    opacity: 0.6;
+    margin: 6px 0 4px;
+}
+
+.mmv-panel .mmv-json {
+    width: 100%;
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 0.8em;
+    resize: vertical;
+}
+
+.mmv-panel .mmv-json.mmv-invalid {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.5);
+}
+
+.mmv-panel .mmv-buttons {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.mmv-panel .mmv-status {
+    font-size: 0.8em;
+    opacity: 0.75;
+    min-height: 1.2em;
+    margin-top: 6px;
+}
+
+#mmv-bar {
+    display: none;
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 4000;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: rgba(15, 23, 42, 0.92);
+    border: 1px solid rgba(56, 189, 248, 0.45);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45);
+    color: #e2e8f0;
+    font-size: 0.85em;
+    max-width: 46vw;
+}
+
+#mmv-bar .mmv-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 8px #38bdf8;
+    flex: 0 0 auto;
+}
+
+#mmv-bar .mmv-bar-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#mmv-bar .mmv-bar-stop {
+    flex: 0 0 auto;
+    padding: 2px 8px;
+    min-height: auto;
+}

@@ -1,0 +1,15 @@
+{
+  "display_name": "MiMo 多角色朗读",
+  "loading_order": 100,
+  "requires": [],
+  "optional": [],
+  "dependencies": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "dsh",
+  "version": "0.1.0",
+  "homePage": "",
+  "auto_update": false,
+  "minimum_client_version": "1.12.0",
+  "i18n": {}
+}
